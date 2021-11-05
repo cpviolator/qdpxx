@@ -754,19 +754,36 @@ quarkContractXX(const PColorMatrix<T1,2>& s1, const PColorMatrix<T2,2>& s2)
  *  baryon routines. Seperate baryon routines
  *  should be written for every number of colors.
  */
-template<class T1, class T2>
-inline typename BinaryReturn<PColorMatrix<T1,4>, PColorMatrix<T2,4>, FnQuarkContractXX>::Type_t
-quarkContractXX(const PColorMatrix<T1,4>& s1, const PColorMatrix<T2,4>& s2)
-{
-  typename BinaryReturn<PColorMatrix<T1,4>, PColorMatrix<T2,4>, FnQuarkContractXX>::Type_t  d;
+  template<class T1, class T2>
+  inline typename BinaryReturn<PColorMatrix<T1,4>, PColorMatrix<T2,4>, FnQuarkContractXX>::Type_t
+  quarkContractXX(const PColorMatrix<T1,4>& s1, const PColorMatrix<T2,4>& s2)
+  {
+    typename BinaryReturn<PColorMatrix<T1,4>, PColorMatrix<T2,4>, FnQuarkContractXX>::Type_t  d;
+    
+    // not yet written 
+    QDPIO::cerr << __func__ << ": not written for Nc=4" << std::endl;
+    QDP_abort(1);
+    
+    return d ; 
+  }
 
+// Contraction for quark propagators
+// QuarkContract 
+//! dest  = QuarkContractXX(Qprop1,Qprop2)
+#if QDP_NC > 4
+  template<class T1, class T2>
+  inline typename BinaryReturn<PColorMatrix<T1,Nc>, PColorMatrix<T2,Nc>, FnQuarkContractXX>::Type_t
+  quarkContractXX(const PColorMatrix<T1,Nc>& s1, const PColorMatrix<T2,Nc>& s2)
+  {
+  typename BinaryReturn<PColorMatrix<T1,Nc>, PColorMatrix<T2,Nc>, FnQuarkContractXX>::Type_t  d;
+  
   // not yet written 
-  QDPIO::cerr << __func__ << ": not written for Nc=4" << std::endl;
+  QDPIO::cerr << __func__ << ": not written for Nc=" << Nc << std::endl;
   QDP_abort(1);
-
+  
   return d ; 
 }
-
+#endif
 
 /*! @} */   // end of group primcolormatrix
 

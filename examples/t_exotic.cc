@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
   }
 #endif
 
-#if 1
+#if 0
   // Try out colorCrossProduct
   {
     LatticeColorVector a,b;

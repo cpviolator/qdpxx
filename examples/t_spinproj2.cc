@@ -35,15 +35,15 @@ int main(int argc, char *argv[])
   gaussian(hferm_lat);
 
   // Scalar versions 
-
+#if 0
   // ColorMatrix 
-  OScalar<PScalar<PColorMatrix< RComplex<REAL>, 3 > > > u, u2, u3;
+  OScalar<PScalar<PColorMatrix< RComplex<REAL>, QDP_NC > > > u, u2, u3;
 
   // Fermion
-  OScalar<PSpinVector<PColorVector< RComplex<REAL>, 3>, 4> >  v,v2,v3,diff_v;
+  OScalar<PSpinVector<PColorVector< RComplex<REAL>, QDP_NC>, 4> >  v,v2,v3,diff_v;
 
   // HalfFermion
-  OScalar<PSpinVector<PColorVector< RComplex<REAL>, 3>, 2> > hv,hv2,hv3,diff_hv QDP_ALIGN16;
+  OScalar<PSpinVector<PColorVector< RComplex<REAL>, QDP_NC>, 2> > hv,hv2,hv3,diff_hv QDP_ALIGN16;
 
   u.elem() = u_lat.elem(0);
   u2.elem() = u_lat.elem(1);
@@ -169,7 +169,7 @@ int main(int argc, char *argv[])
   v2   = spinReconstructDir2Plus(hv2);
   diff_v = v2 - v;
   QDPIO::cout << "reconProdDir3Plus: || old - new || / || old || = " << sqrt( norm2(diff_v)/norm2(v2)) << endl;
-
+#endif
 
 
 #if 0
